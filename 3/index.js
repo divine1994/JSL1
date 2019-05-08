@@ -5,6 +5,7 @@ for (let number = 1e4; number < 15e4; number++){
     let seconddigit = number.toString() [1];
     /*отсаток от деления 3 предыдущих на 100 ===52?*/
      let rod = (number-2)*3 % 100;
+    /*Если устраивает - выводим*/
         if (seconddigit ==="2" && rod === 52) {
      console.log(number);
  }
