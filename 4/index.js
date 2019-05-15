@@ -1,10 +1,19 @@
+
 function foo (number) {
    let finish=number;
-    function multi (number) {
-    if (number === undefined) {return finish}
-    else {finish*=number;
-    return multi;}
+
+    function multi (x) {
+        if (x === undefined) {
+            return finish;
+        }
+        else {
+            finish *= finish;
+            console.log(finish);
+            return multi;
+        }
     }
-return multi;
+    return multi;
 }
-console.log(foo(2)(3)(10)());
+let test1=foo(2)(3)(10)();
+console.log(test1);
+
