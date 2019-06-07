@@ -24,16 +24,26 @@ for (i=0; i<11; ++i) {
 
 aliveBirds = Birds.filter(function () {
     for (i=0; i<11; ++i){
-    if (Birds[i].wasEaten === false) {
-        return Birds;}
+        if (Birds[i].wasEaten === false) {
+            return Birds;}
     }
 
 });
+
 
 function RandomBird(arr) {
     let rand = Math.floor(Math.random() * aliveBirds.length);
     return arr[rand];
 }
-    console.log(RandomBird(aliveBirds));
 
+console.log(RandomBird(aliveBirds));
+let fighter1 = RandomBird(aliveBirds);
+console.log(fighter1);
+//console.log(Fighter1+" fight!");
+//let Fighter2 = RandomBird(aliveBirds);
+//console.log(Fighter2+ " fight!");
 
+//Fighter1.wasEaten = true;
+
+//for (i=0; i<11; ++i) {
+   //console.log(Birds[i].wasEaten);}
