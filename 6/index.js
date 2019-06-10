@@ -11,39 +11,45 @@ class Bird {
         this.points = 0;
         this.wasEaten = false;
     }
-    sayHi() {
-        console.log(this.name + " ready to Fight!");
-    }
 }
+
 let Birds = [];
 for (i=0; i<11; ++i) {
     Birds[i] = new Bird("Bird"+(i+1));
-    console.log(Birds[i].name+ " ready to Fight!");
+    //console.log(Birds[i].name+ " ready to Fight!");
 }
 
 
-aliveBirds = Birds.filter(function () {
-    for (i=0; i<11; ++i){
-        if (Birds[i].wasEaten === false) {
-            return Birds;}
-    }
-
+let aliveBirds = Birds.filter(function (readybird) {
+    return readybird.wasEaten === false;
 });
 
+console.log(aliveBirds);
 
 function RandomBird(arr) {
-    let rand = Math.floor(Math.random() * aliveBirds.length);
+    let rand = Math.floor(Math.random() * arr.length);
     return arr[rand];
 }
 
-console.log(RandomBird(aliveBirds));
+console.log(aliveBirds.length);
+while (true){
+    aliveBirds = Birds.filter(function (readybird) {
+        return readybird.wasEaten === false;
+    });
+    console.log(aliveBirds.length);
+    if (aliveBirds.length < 2 ) break;
 let fighter1 = RandomBird(aliveBirds);
-console.log(fighter1);
-//console.log(Fighter1+" fight!");
-//let Fighter2 = RandomBird(aliveBirds);
-//console.log(Fighter2+ " fight!");
+let fighter2 = RandomBird(aliveBirds);
+while (fighter1.name === fighter2.name){ fighter2 = RandomBird(aliveBirds);}
+console.log(fighter1.name + " prepare to eat!");
+console.log(fighter2.name +" prepare to die!");
+fighter1.points += 1;
+fighter2.wasEaten = true;
+console.log(fighter1.name +" points= "+fighter1.points);
+console.log(fighter2.name +" "+ fighter2.wasEaten);}
 
 //Fighter1.wasEaten = true;
-
+for (i=0; i<11; ++i){
+    console.log(Birds[i])};
 //for (i=0; i<11; ++i) {
    //console.log(Birds[i].wasEaten);}
