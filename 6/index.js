@@ -14,10 +14,7 @@ class Bird {
 }
 
 let Birds = [];
-for (i=0; i<11; ++i) {
-    Birds[i] = new Bird("Bird"+(i+1));
-    //console.log(Birds[i].name+ " ready to Fight!");
-}
+for (i=0; i<11; ++i) Birds[i] = new Bird("Bird" + (i + 1));
 
 
 let aliveBirds = Birds.filter(function (readybird) {
@@ -49,7 +46,7 @@ console.log(fighter1.name +" points= "+fighter1.points);
 console.log(fighter2.name +" "+ fighter2.wasEaten);}
 
 //Fighter1.wasEaten = true;
-for (i=0; i<11; ++i){
-    console.log(Birds[i])};
+for (i=0; i<Birds.length; ++i){
+    console.log(Birds[i])}
 //for (i=0; i<11; ++i) {
    //console.log(Birds[i].wasEaten);}
