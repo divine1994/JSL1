@@ -9,7 +9,7 @@ function getApi(result) {
     for (price of data.best_prices)
         {
             let date = price.depart_date.split('-');
-        if (+date[0] === 2019 && +date[1] === 9 || +date[1] === 10 || +date[1] === 11)
+        if (+date[0] === 2019 && +date[1] === 7/* || +date[1] === 10 || +date[1] === 11*/)
             {
             if (price.value < shitprice.price )
                 {
@@ -19,11 +19,11 @@ function getApi(result) {
 
             }
         }
-    console.log(("Дешевле всего лететь из Москвы в Ниццу " + shitprice.date + " Это будет стоить " + shitprice.price + "руб."));
+    console.log(("Дешевле всего лететь из Хельсинки в Тиват " + shitprice.date + " Это будет стоить " + shitprice.price + "руб."));
 }
 
 //Когда лень получать массив данных с api копипастом
-http.get('http://min-prices.aviasales.ru/calendar_preload?origin=MOW&destination_iata=NCE&depart_date=2019-09-15&one_way=true', (res) => {
+http.get('http://min-prices.aviasales.ru/calendar_preload?origin=HEL&destination_iata=TIV&depart_date=2019-07-15&one_way=true', (res) => {
     const { statusCode } = res;
     const contentType = res.headers['content-type'];
 

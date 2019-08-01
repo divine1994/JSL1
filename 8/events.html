@@ -12,20 +12,26 @@
             text-align: center;
         }
     </style>
+    <script>
+        let counter =0;
+
+        function btnClicked() {
+            counter+=1;
+            const div = document.querySelector("div");
+            div.innerText = "Вы кликнули " + counter + " раз";
+        }
+        document.addEventListener("DOMContentLoaded",function(){
+            const btn = document.querySelector("button");
+            btn.addEventListener("click", btnClicked);
+            btn.addEventListener("click",()=> {console.log("clicked")});
+        });
+    </script>
 </head>
 <body>
 <section>
-    <button type="button" class = "btn btn-primary" onclick="btnClicked()">Кликните еще</button>
+    <button type="button" class = "btn btn-primary">Кликните еще</button>
     <div></div>
 </section>
 </body>
-<script>
-    let counter =0;
 
-    function btnClicked() {
-        counter+=1;
-        const div = document.querySelector("div");
-        div.innerText = "Вы кликнули " + counter + " раз";
-    }
-</script>
 </html>
