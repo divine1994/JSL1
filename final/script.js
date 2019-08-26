@@ -1,26 +1,6 @@
 const categories = [ "Комедии", "Ужасы", "Боевики", "Драма"];
 const films = [];
-document.addEventListener("DOMContentLoaded", function(){
-    for(let category of categories) {
-        const newEl = document.createElement("div");
-        newEl.classList.add("category");
-        newEl.innerText= category;
-        newEl.addEventListener("click", function (){
-            onCategoryChoice(category);
-        });
-        document.querySelector(".categories").appendChild(newEl);
-    }
-});
-function onCategoryChoice(categoryName){
-    document.querySelector(".films").innerHTML = "";
-    const films = getFilmsByCategory(categoryName);
-    for (let film of films) {
-        const newEl = document.createElement("div");
-        newEl.classList.add("film");
-        newEl.innerText= film.name;
-        document.querySelector(".films").appendChild(newEl);
-    }
-}
+
 class Comment {
     constructor(text, author, stars) {
         this.stars = stars;
@@ -55,14 +35,15 @@ function getFilmsByCategory(cat) {
     }
     return newFilms;
 }
+
 films.push(new Film("Титаник", 3));
 films.push(new Film("Один дома", 0));
 films.push(new Film("Мама", 1));
 films.push(new Film("Такси", 2));
 films.push(new Film("Такси 2", 2));
-films[0].addComment("очень грустный фильм","user123", 4);
-films[1].addComment("очень грустный фильм","user1", 5);
-films[1].addComment("очень очень грустный фильм","user2", 3);
+films[0].addComment("очень грустный фильм","Сашкевич", 4);
+films[1].addComment("очень грустный фильм","Сашка", 5);
+films[1].addComment("очень очень грустный фильм","Александр", 3);
 
 console.log(getFilmsByCategory("Боевики"));
 console.log(films[0].getAverageStars());
