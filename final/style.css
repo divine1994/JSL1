@@ -56,3 +56,30 @@ section {
 .film .film-comments .comment .comment-author {
   font-weight: 700;
 }
+
+.film.button {
+  width:200px;
+  padding: 6px;
+  font-size: 12px;
+  color: #333;
+  margin: 20px auto 10px;
+  border-radius: 6px;
+}
+
+.comment-form {
+  width: 400px;
+  padding: 10px;
+  border-radius: 6px;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.comment-form input {
+  margin: 10px 5px 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+  color: #333;
+  border: 1px solid #ccc;
+  width: 100px;
+}
+input.

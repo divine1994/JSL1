@@ -18,6 +18,16 @@ function getFilmComments(filmName) {
     return film.comments;
 }
 
+function renderCommentForm(film) {
+    const content = '<div class="form-title">Добавьте свой отзыв фильму' + film.name + '</div><div class="form-body">' +
+        '<input class="form-author" placeholder="Ваше имя"><input class="form-comment" placeholder="Ваш комментарий"></div>';
+    const form = document.createElement("div");
+    form.classList.add("comment-form");
+    form.innerHTML = content;
+    return form;
+
+}
+
 function openFilmCart(film, newEl) {
     const comments = getFilmComments(film.name);
     let s = "";
@@ -27,6 +37,11 @@ function openFilmCart(film, newEl) {
     newEl.innerHTML += '<div class ="film-comments">' + s + '</div>';
     const addCommentButton = document.createElement("button");
     addCommentButton.innerText = "Добавить отзыв";
+    addCommentButton.addEventListener("click",function (event) {
+        event.stopPropagation();
+        const commentForm = renderCommentForm(film);
+        newEl.appendChild(commentForm);
+    });
     newEl.appendChild(addCommentButton);
 }
 
