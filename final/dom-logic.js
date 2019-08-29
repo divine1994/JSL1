@@ -19,13 +19,18 @@ function getFilmComments(filmName) {
 }
 
 function renderCommentForm(film) {
-    const content = '<div class="form-title">Добавьте свой отзыв фильму' + film.name + '</div><div class="form-body">' +
-        '<input class="form-author" placeholder="Ваше имя"><input class="form-comment" placeholder="Ваш комментарий"></div>';
+    const content = '<div class="form-title">Добавьте свой отзыв фильму ' + film.name + '</div><div class="form-body">' +
+        '<input class="form-author" placeholder="Ваше имя"><input class="form-comment" placeholder="Ваш комментарий"><button>Отправить</button></div>';
     const form = document.createElement("div");
     form.classList.add("comment-form");
     form.innerHTML = content;
-    return form;
+    
+    form.addEventListener("click", function (event) {
+        event.stopPropagation();
+        form.classList.add("chosen");
+        });
 
+    return form;
 }
 
 function openFilmCart(film, newEl) {
@@ -41,6 +46,7 @@ function openFilmCart(film, newEl) {
         event.stopPropagation();
         const commentForm = renderCommentForm(film);
         newEl.appendChild(commentForm);
+        newEl.removeChild(addCommentButton);
     });
     newEl.appendChild(addCommentButton);
 }
@@ -49,7 +55,7 @@ function onFilmClick(film,newEl) {
     if (openedFilms.hasOwnProperty(film.name) && openedFilms[film.name] === true ){
         newEl.innerHTML = '<div class ="film-name">'+film.name+'</div>';
         openedFilms[film.name] = false;}
-        else{
+    else{
         openFilmCart(film, newEl);
         openedFilms[film.name] = true;
     }
