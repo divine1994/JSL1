@@ -13,14 +13,28 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 });
 
+function getFilmByName(filmName) {
+    return films.filter(f => f.name === filmName)[0];
+}
+
 function getFilmComments(filmName) {
-    const film = films.filter(f => f.name === filmName)[0];
+    const film = getFilmByName(filmName);
     return film.comments;
+}
+
+function onAddCommentClick(name) {
+    const authorValue =document.getElementById("author-" + name).value;
+    const commentValue =document.getElementById("comment-" + name).value;
+    const film = getFilmByName(name);
+    film.addComment(commentValue, authorValue);
+    onCategoryChoice(film.category);
 }
 
 function renderCommentForm(film) {
     const content = '<div class="form-title">Добавьте свой отзыв фильму ' + film.name + '</div><div class="form-body">' +
-        '<input class="form-author" placeholder="Ваше имя"><input class="form-comment" placeholder="Ваш комментарий"><button>Отправить</button></div>';
+        '<input id="author-'+ film.name+'" class="form-author" placeholder="Ваше имя">' +
+        '<input id="comment-'+ film.name+'" class="form-comment" placeholder="Ваш комментарий">'+
+        '<button onclick="onAddCommentClick(\''+ film.name + '\')">Отправить</button></div>';
     const form = document.createElement("div");
     form.classList.add("comment-form");
     form.innerHTML = content;

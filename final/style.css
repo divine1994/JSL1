@@ -57,8 +57,8 @@ section {
   font-weight: 700;
 }
 
-.film.button {
-  width:200px;
+.film button {
+  width: 200px;
   padding: 6px;
   font-size: 12px;
   color: #333;
@@ -82,4 +82,12 @@ section {
   border: 1px solid #ccc;
   width: 100px;
 }
-input.
+
+input.form-comment {
+  width: 200px;
+}
+
+.chosen {
+  padding: 7px;
+  border: 4px dotted #c9ebb2;
+}
