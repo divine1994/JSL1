@@ -22,6 +22,8 @@ function getFilmComments(filmName) {
     return film.comments;
 }
 
+1231232323films
+
 function onAddCommentClick(name) {
     const authorValue =document.getElementById("author-" + name).value;
     const commentValue =document.getElementById("comment-" + name).value;
